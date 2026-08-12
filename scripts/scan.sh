@@ -68,8 +68,11 @@ arp -a -n 2>/dev/null | grep -oE "\(${SUBNET}\.[0-9]+\) at ([0-9a-f]{1,2}:){5}[0
   # scan ports
   open=""
   for p in $PORTS; do check_port "$ip" "$p" && open="$open $p"; done
+  # flag camera-like ports — but never on the router (its admin ports aren't cameras)
   flag=""
-  echo "$open" | grep -qE '(^| )(554|8554|8000|34567|37777|37778|8899)( |$)' && flag="  <<< CAMERA-LIKE PORT"
+  if [ "$kind" != "[ROUTER]" ]; then
+    echo "$open" | grep -qE '(^| )(554|8554|8000|34567|37777|37778|8899)( |$)' && flag="  <<< CAMERA-LIKE PORT"
+  fi
 
   printf "  %-14s %-18s %-9s%s\n" "$ip" "$mac" "$kind" "$tag"
   [ -n "$open" ] && printf "        open ports:%s%s\n" "$open" "$flag"
