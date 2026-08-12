@@ -1,0 +1,5 @@
+*.jpg
+*.jpeg
+*.png
+.seq_*
+.DS_Store
