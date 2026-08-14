@@ -1,0 +1,253 @@
+# camera_ouis.txt — MAC OUI (first 3 octets) -> known camera / camera-module vendors.
+# Used by scan.sh to flag app/cloud cameras that expose NO local port (RTSP scan misses them).
+# Format:  OUI<TAB>TIER<TAB>Vendor
+#   CAM    = dedicated camera / surveillance / baby-monitor maker (high confidence)
+#   MODULE = WiFi-module maker common inside cheap no-name cams (also bulbs/plugs -> "verify")
+# Source: IEEE OUI registry via Wireshark 'manuf'. Not exhaustive; MAC randomization/private OUIs won't match.
+00:02:D1	CAM	Vivotek, Inc.
+00:03:C5	CAM	Mobotix AG
+00:1F:54	CAM	Lorex Technology Inc.
+00:33:7A	MODULE	Tuya Smart Inc.
+00:40:8C	CAM	Axis Communications AB
+00:65:1E	CAM	Amcrest Technologies
+00:BC:99	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+04:03:12	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+04:EE:CD	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+08:3B:C1	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+08:54:11	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+08:A1:89	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+08:CC:81	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+08:EA:40	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+08:ED:ED	CAM	Zhejiang Dahua Technology Co., Ltd.
+0C:75:D2	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+0C:8C:24	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+0C:A6:4C	CAM	Hangzhou Ezviz Software Co.,Ltd.
+0C:CF:89	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+10:12:FB	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+10:5A:17	MODULE	Tuya Smart Inc.
+10:A4:BE	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+10:D5:61	MODULE	Tuya Smart Inc.
+14:0A:02	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+14:5D:34	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+14:6B:9C	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+14:A7:8B	CAM	Zhejiang Dahua Technology Co., Ltd.
+18:68:CB	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+18:69:D8	MODULE	Tuya Smart Inc.
+18:80:25	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+18:DE:50	MODULE	Tuya Smart Inc.
+1C:90:FF	MODULE	Tuya Smart Inc.
+20:2C:05	CAM	Zhejiang Dahua Zhilian Co.,Ltd
+20:32:33	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+20:BB:BC	CAM	Hangzhou Ezviz Software Co.,Ltd.
+20:F1:B2	MODULE	Tuya Smart Inc.
+20:F4:1B	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+24:0F:9B	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+24:28:FD	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+24:32:AE	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+24:48:45	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+24:52:6A	CAM	Zhejiang Dahua Technology Co., Ltd.
+24:B1:05	CAM	Prama Hikvision India Private Limited
+28:57:BE	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+28:F3:66	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+2C:A5:9C	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+2C:AA:8E	CAM	Wyze Labs Inc
+2C:B4:71	MODULE	Tuya Smart Inc.
+2C:C3:E6	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+30:48:7D	MODULE	Tuya Smart Inc.
+30:7B:C9	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+30:DD:AA	CAM	Zhejiang Dahua Technologyco.,Ltd
+34:09:62	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+34:7D:E4	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+34:C6:DD	CAM	Hangzhou Ezviz Software Co.,Ltd.
+38:01:46	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+38:1F:8D	MODULE	Tuya Smart Inc.
+38:2C:E5	MODULE	Tuya Smart Inc.
+38:7A:CC	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+38:A5:C9	MODULE	Tuya Smart Inc.
+38:AF:29	CAM	Zhejiang Dahua Technology Co., Ltd.
+3C:0B:59	MODULE	Tuya Smart Inc.
+3C:1B:F8	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+3C:33:00	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+3C:E3:6B	CAM	Zhejiang Dahua Technology Co., Ltd.
+3C:EF:8C	CAM	Zhejiang Dahua Technology Co., Ltd.
+40:7A:A4	CAM	Zhejiang Dahua Technologyco.,Ltd
+40:AC:BF	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+40:B5:70	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+44:01:BB	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+44:19:B6	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+44:33:4C	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+44:47:CC	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+44:A6:42	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+44:B4:23	CAM	Hanwha Vision Vietnam Company Limited
+44:EA:54	CAM	Udisense Dba Nanit
+48:62:64	CAM	Arlo Technology
+48:78:5B	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+48:EA:63	CAM	Zhejiang Uniview Technologies Co., Ltd.
+4C:11:BF	CAM	Zhejiang Dahua Technology Co., Ltd.
+4C:1F:86	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+4C:62:DF	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+4C:99:E8	CAM	Zhejiang Dahua Technologyco.,Ltd
+4C:A9:19	MODULE	Tuya Smart Inc.
+4C:BD:8F	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+4C:F5:DC	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+50:8A:06	MODULE	Tuya Smart Inc.
+50:8B:B9	MODULE	Tuya Smart Inc.
+50:E5:38	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+54:8C:81	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+54:C4:15	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+54:D6:0D	CAM	Hangzhou Ezviz Software Co.,Ltd.
+54:EF:33	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+58:03:FB	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+58:50:ED	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+58:8F:CF	CAM	Hangzhou Ezviz Software Co.,Ltd.
+5C:34:5B	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+5C:F5:1A	CAM	Zhejiang Dahua Technology Co., Ltd.
+60:7E:A4	CAM	Shanghai Imilab Technology Co.Ltd
+60:FB:00	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+64:24:4D	CAM	Hangzhou Ezviz Software Co.,Ltd.
+64:DB:8B	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+64:F2:FB	CAM	Hangzhou Ezviz Software Co.,Ltd.
+64:FD:29	CAM	Zhejiang Dahua Technology Co., Ltd.
+68:57:2D	MODULE	Tuya Smart Inc.
+68:6D:BC	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+6C:1C:71	CAM	Zhejiang Dahua Technology Co., Ltd.
+6C:D5:52	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+6C:F1:7E	CAM	Zhejiang Uniview Technologies Co.,Ltd.
+70:89:76	MODULE	Tuya Smart Inc.
+74:3F:C2	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+74:C9:29	CAM	Zhejiang Dahua Technology Co., Ltd.
+74:EE:2A	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+78:22:88	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+78:A6:A0	CAM	Hangzhou Ezviz Software Co.,Ltd.
+78:C1:AE	CAM	Hangzhou Ezviz Software Co.,Ltd.
+78:DF:72	CAM	Shanghai Imilab Technology Co.Ltd
+7C:78:B2	CAM	Wyze Labs Inc
+7C:A7:B0	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+7C:F6:66	MODULE	Tuya Smart Inc.
+80:48:2C	CAM	Wyze Labs Inc
+80:48:9F	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+80:64:7C	MODULE	Tuya Smart Inc.
+80:7C:62	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+80:BE:AF	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+80:F5:AE	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+84:94:59	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+84:9A:40	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+84:E3:42	MODULE	Tuya Smart Inc.
+84:FC:14	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+88:26:3F	CAM	Zhejiang Uniview Technologies Co.,Ltd.
+88:49:2D	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+88:DE:39	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+8C:1D:55	CAM	Hanwha NxMD (Thailand) Co., Ltd.
+8C:22:D2	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+8C:E7:48	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+8C:E9:B4	CAM	Zhejiang Dahua Technology Co., Ltd.
+90:02:A9	CAM	Zhejiang Dahua Technology Co., Ltd.
+94:BA:06	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+94:E1:AC	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+94:EC:13	CAM	Hangzhou Ezviz Software Co.,Ltd.
+94:F8:27	CAM	Shanghai Imilab Technology Co.Ltd
+98:03:CF	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+98:8B:0A	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+98:9D:E5	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+98:DF:82	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+98:F1:12	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+98:F9:CC	CAM	Zhejiang Dahua Technology Co., Ltd.
+9C:14:63	CAM	Zhejiang Dahua Technology Co., Ltd.
+9C:8E:CD	CAM	Amcrest Technologies
+A0:60:32	CAM	Amcrest Technologies
+A0:92:08	MODULE	Tuya Smart Inc.
+A0:9F:10	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+A0:BD:1D	CAM	Zhejiang Dahua Technology Co., Ltd.
+A0:FF:0C	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A4:11:62	CAM	Arlo Technology
+A4:14:37	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A4:29:02	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A4:4B:D9	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A4:A4:59	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A4:D5:C2	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+A8:80:55	MODULE	Tuya Smart Inc.
+A8:B5:8E	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+A8:CA:87	CAM	Zhejiang Dahua Zhilian Co.,Ltd
+AC:1C:26	CAM	Hangzhou Ezviz Software Co.,Ltd.
+AC:A2:13	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+AC:B9:2F	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+AC:CB:51	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+AC:CC:8E	CAM	Axis Communications AB
+B0:FF:0D	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+B4:10:1C	CAM	Shanghai Imilab Technology Co.Ltd
+B4:4C:3B	CAM	Zhejiang Dahua Technology Co., Ltd.
+B4:6D:C2	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+B4:A3:82	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+B8:06:0D	MODULE	Tuya Smart Inc.
+B8:88:80	CAM	Shanghai Imilab Technology Co.Ltd
+B8:A4:4F	CAM	Axis Communications AB
+BC:29:78	CAM	Prama Hikvision India Private Limited
+BC:32:5F	CAM	Zhejiang Dahua Technology Co., Ltd.
+BC:35:1E	MODULE	Tuya Smart Inc.
+BC:51:FE	CAM	Swann communications Pty Ltd
+BC:5E:33	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+BC:9B:5E	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+BC:AD:28	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+BC:BA:C2	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C0:39:5A	CAM	Zhejiang Dahua Technology Co., Ltd.
+C0:51:7E	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C0:56:E3	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C0:6D:ED	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C0:F8:53	MODULE	Tuya Smart Inc.
+C4:2F:90	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C4:3C:B0	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+C4:79:05	CAM	Zhejiang Uniview Technologies Co.,Ltd.
+C4:82:E1	MODULE	Tuya Smart Inc.
+C4:AA:C4	CAM	Zhejiang Dahua Technology Co., Ltd.
+C8:A7:02	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+C8:FE:0F	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+CC:13:F3	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+CC:64:1A	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+CC:8C:BF	MODULE	Tuya Smart Inc.
+D0:32:E7	MODULE	Tuya Smart Inc.
+D0:3F:27	CAM	Wyze Labs Inc
+D0:82:E8	MODULE	Tuya Smart Inc.
+D0:82:EB	MODULE	Tuya Smart Inc.
+D4:43:0E	CAM	Zhejiang Dahua Technology Co., Ltd.
+D4:A6:51	MODULE	Tuya Smart Inc.
+D4:E8:53	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+D8:1F:12	MODULE	Tuya Smart Inc.
+D8:C8:0C	MODULE	Tuya Smart Inc.
+D8:D6:68	MODULE	Tuya Smart Inc.
+D8:FC:92	MODULE	Tuya Smart Inc.
+DC:07:F8	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+DC:D2:6A	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+E0:2E:FE	CAM	Zhejiang Dahua Technology Co., Ltd.
+E0:50:8B	CAM	Zhejiang Dahua Technology Co., Ltd.
+E0:B9:4D	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+E0:BA:AD	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+E0:CA:3C	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+E0:DF:13	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+E4:24:6C	CAM	Zhejiang Dahua Technology Co., Ltd.
+E4:30:22	CAM	Hanwha Vision VietNam
+E4:AE:E4	MODULE	Tuya Smart Inc.
+E4:D5:8B	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+E8:27:25	CAM	Axis Communications AB
+E8:A0:ED	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+EC:3D:FD	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+EC:71:DB	CAM	Reolink Innovation Limited
+EC:97:E0	CAM	Hangzhou Ezviz Software Co.,Ltd.
+EC:A9:71	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+EC:C8:9C	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+F0:C8:14	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+F0:C8:8B	CAM	Wyze Labs Inc
+F4:70:18	CAM	Hangzhou Ezviz Software Co.,Ltd.
+F4:B1:C2	CAM	Zhejiang Dahua Technology Co., Ltd.
+F8:17:2D	MODULE	Tuya Smart Inc.
+F8:4D:FC	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+F8:CE:07	CAM	Zhejiang Dahua Technologyco.,Ltd
+F8:F6:B7	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+FC:23:CD	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+FC:24:22	CAM	Hangzhou Ezviz Software Co.,Ltd.
+FC:37:6D	MODULE	Shenzhen Bilian Electronic Co.，Ltd
+FC:3C:D7	MODULE	Tuya Smart Inc.
+FC:5F:49	CAM	Zhejiang Dahua Technology Co., Ltd.
+FC:67:1F	MODULE	Tuya Smart Inc.
+FC:9C:98	CAM	Arlo Technology
+FC:9F:FD	CAM	Hangzhou Hikvision Digital Technology Co.,Ltd.
+FC:B6:9D	CAM	Zhejiang Dahua Technology Co., Ltd.
