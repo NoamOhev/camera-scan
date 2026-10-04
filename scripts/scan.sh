@@ -4,6 +4,23 @@
 # No nmap required. macOS + Linux.
 set -u
 
+# --- locate our own dir + the camera-vendor OUI database (offline, no network calls) ---
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
+OUI_DB="$SCRIPT_DIR/camera_ouis.txt"
+
+# normalize a MAC's first 3 octets to zero-padded uppercase OUI (arp strips leading zeros)
+oui_of() {
+  local o1 o2 o3
+  o1=$(printf '%s' "$1" | cut -d: -f1); o2=$(printf '%s' "$1" | cut -d: -f2); o3=$(printf '%s' "$1" | cut -d: -f3)
+  printf '%02X:%02X:%02X' "0x${o1:-0}" "0x${o2:-0}" "0x${o3:-0}" 2>/dev/null
+}
+
+# look up an OUI in the vendor DB -> prints "TIER<TAB>Vendor" if a known camera vendor, else nothing
+cam_vendor() {
+  [ -f "$OUI_DB" ] || return 1
+  grep -i "^$1	" "$OUI_DB" 2>/dev/null | head -1 | cut -f2,3
+}
+
 # --- locate interface / IP / gateway / SSID ---
 if command -v route >/dev/null 2>&1 && route -n get default >/dev/null 2>&1; then
   IFACE=$(route -n get default 2>/dev/null | awk '/interface:/{print $2}')
@@ -68,6 +85,14 @@ arp -a -n 2>/dev/null | grep -oE "\(${SUBNET}\.[0-9]+\) at ([0-9a-f]{1,2}:){5}[0
   # scan ports
   open=""
   for p in $PORTS; do check_port "$ip" "$p" && open="$open $p"; done
+
+  # camera-vendor lookup by MAC OUI — catches cloud/app cams that expose NO local port
+  vtier=""; vname=""
+  if [ "$kind" != "[ROUTER]" ]; then
+    vinfo=$(cam_vendor "$(oui_of "$mac")")
+    if [ -n "$vinfo" ]; then vtier=$(printf '%s' "$vinfo" | cut -f1); vname=$(printf '%s' "$vinfo" | cut -f2); fi
+  fi
+
   # flag camera-like ports — but never on the router (its admin ports aren't cameras)
   flag=""
   if [ "$kind" != "[ROUTER]" ]; then
@@ -76,6 +101,17 @@ arp -a -n 2>/dev/null | grep -oE "\(${SUBNET}\.[0-9]+\) at ([0-9a-f]{1,2}:){5}[0
 
   printf "  %-14s %-18s %-9s%s\n" "$ip" "$mac" "$kind" "$tag"
   [ -n "$open" ] && printf "        open ports:%s%s\n" "$open" "$flag"
+  if [ -n "$vname" ]; then
+    if [ "$vtier" = "CAM" ]; then
+      printf "        >>> KNOWN CAMERA VENDOR: %s  (app/cloud cam — may expose NO local port)\n" "$vname"
+    else
+      printf "        >>> CAMERA-CAPABLE MODULE: %s  (verify — module also used in bulbs/plugs)\n" "$vname"
+    fi
+  fi
 done
 echo "--------------------------------------------------"
-echo "Next: perl rtsp_probe.pl <IP> on any [VENDOR] host with a camera-like port."
+echo "Suspects = any host tagged  <<< CAMERA-LIKE PORT  or  >>> KNOWN CAMERA VENDOR / CAMERA-CAPABLE MODULE."
+echo "Next:"
+echo "  • camera-like port  -> perl rtsp_probe.pl <IP>   (fingerprint + find the stream)"
+echo "  • vendor-flagged, no open port -> likely a cloud/app cam that streams outbound; the network"
+echo "    scan can't see its video. Account for it (your own gear?) or confirm with a physical lens sweep."

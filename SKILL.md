@@ -33,10 +33,16 @@ Run the steps in order. Scripts live in `scripts/` next to this file — resolve
 ```bash
 bash "$SKILL_DIR/scripts/scan.sh"
 ```
-Prints: your interface/IP/gateway/SSID, every live host with its MAC, a **[RANDOM]** vs **[VENDOR]** tag per MAC, and any open camera ports per host.
+Prints: your interface/IP/gateway/SSID, every live host with its MAC, a **[RANDOM]** vs **[VENDOR]** tag per MAC, any open camera ports per host, and — new — a **known-camera-vendor** flag derived from the MAC's manufacturer (OUI).
 
-- **[RANDOM]** MACs (locally-administered bit set) = phones/laptops with MAC randomization → almost never cameras.
-- **[VENDOR]** MACs with a camera port open (554/8000/8554/34567/37777/8899…) = **suspects**.
+Two independent ways a host gets flagged as a suspect:
+- **`<<< CAMERA-LIKE PORT`** — a **[VENDOR]** MAC with a camera/DVR port open (554/8000/8554/34567/37777/8899…). These are **local-stream** cameras (RTSP/ONVIF/DVR) → go to Step 2 to pull the feed.
+- **`>>> KNOWN CAMERA VENDOR` / `>>> CAMERA-CAPABLE MODULE`** — the MAC's manufacturer is a known camera maker (`CAM`, e.g. Hikvision/Dahua/IMILAB/Wyze/Reolink) or a WiFi-module maker common in cheap cams (`MODULE`, e.g. Shenzhen Bilian/Tuya — also used in bulbs/plugs, so "verify"). **This catches cloud/app cameras that expose NO local port** — the kind the port scan alone misses (most modern consumer cams and cheap "spy cams" stream *outbound* to an app, so there's no port to find). Vendor list: `scripts/camera_ouis.txt` (offline, from the IEEE OUI registry; not exhaustive).
+
+Interpreting the two together:
+- **VENDOR-vendor-flagged _with_ a camera port** = strongest signal; fingerprint it (Step 2).
+- **Vendor-flagged with _no_ open port** = likely a cloud/app cam. The scan can't see its video (it's not serving locally). Account for it (your own gear?) or confirm with a **physical lens sweep** (below). Skip Step 2 — there's no local stream to probe.
+- **[RANDOM]** MACs (locally-administered bit set) = phones/laptops with MAC randomization → almost never cameras. Note: a camera using MAC randomization won't match the vendor list either — another reason the physical sweep matters.
 - The gateway with port 80 is just the router — normal.
 
 ### 2. Fingerprint each suspect

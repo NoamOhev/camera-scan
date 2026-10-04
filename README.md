@@ -8,7 +8,7 @@ Built for a real situation: you walk into a hotel room, Airbnb, or rental and wa
 
 ## What it does
 
-1. **Discover** — maps every live device on the local `/24`, reads each MAC, and tags it `[VENDOR]` (real hardware, could be a camera) vs `[RANDOM]` (a phone/laptop using MAC randomization). Scans each host for camera/DVR ports (RTSP 554, ONVIF 8000, and cheap-DVR ports 34567/37777/8899…).
+1. **Discover** — maps every live device on the local `/24`, reads each MAC, and tags it `[VENDOR]` (real hardware, could be a camera) vs `[RANDOM]` (a phone/laptop using MAC randomization). Scans each host for camera/DVR ports (RTSP 554, ONVIF 8000, and cheap-DVR ports 34567/37777/8899…), **and** matches each MAC's manufacturer (OUI) against a bundled list of known camera vendors — so it also flags **cloud/app cameras that expose no local port** (most modern consumer cams and cheap "spy cams" stream outbound to an app; a port scan alone never sees them).
 2. **Fingerprint** — sends `OPTIONS * RTSP/1.0` to read the device's `Server:` header (usually names the vendor: TVT, Dahua, Hikvision…), then brute-forces a large RTSP path dictionary to find the live stream URL.
 3. **Pull frames** — enumerates DVR channels and grabs a clean frame from each with `ffmpeg`, so you can *see* the view (street? stairwell? your bedroom? your balcony?).
 4. **Classify & report** — outdoor CCTV vs indoor common area vs 🚩 private space, whether audio (a mic) is present, with timestamped frames as evidence.
@@ -43,7 +43,8 @@ bash scripts/grab.sh 'rtsp://10.0.0.50:554/chID={CH}&streamType=main' 8
 | File | Purpose |
 |------|---------|
 | `SKILL.md` | Skill definition + step-by-step workflow for the agent |
-| `scripts/scan.sh` | Network discovery, MAC classification, camera-port scan |
+| `scripts/scan.sh` | Network discovery, MAC classification, camera-port scan + vendor-OUI flag |
+| `scripts/camera_ouis.txt` | Offline MAC-OUI → known-camera-vendor list (from the IEEE registry) |
 | `scripts/rtsp_probe.pl` | RTSP vendor fingerprint + stream-path brute-force |
 | `scripts/grab.sh` | Per-channel `ffmpeg` frame capture |
 
